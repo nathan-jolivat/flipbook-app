@@ -12,13 +12,13 @@ Champs à afficher:
 Attention, il faudra bien vérifier les paramètres liès à la configuration de la taille maximale d'upload
 
 ** Fichier php.ini **
-<code>
+```
 ; Maximum size of POST data that PHP will accept.  
 post_max_size = 32M  
   
 ; Maximum allowed size for uploaded files.  
 upload_max_filesize = 32M  
-</code>
+```
 
 
 
@@ -30,7 +30,7 @@ Le script d'action (celui qui va récupérer les données du formulaire d'upload
 
 On va utiliser le titre de la video pour le nom du dossier. Il faudra prendre soin de **nettoyer** le titre avant!
 
-<code>
+```php
 // Slugify a string
 function slugify($text)
 {
@@ -57,16 +57,16 @@ function slugify($text)
 
 $titre = $_POST['title'];
 $titre_clean = slugify($titre);
-</code>
+```
 
 
 On crée alors le dossier avec ce titre nettoyé.
 
-<code>
+```php
 if (!mkdir($titre_clean, 0777, true)) {
     die('Erreur de création du dossier...');
 }
-</code>
+```
 
 
 
