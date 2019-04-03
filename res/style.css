@@ -1,0 +1,9 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#main-img {
+    border-left: solid 18px #F8EF28;
+    max-height: 90vh;
+}
+
