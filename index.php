@@ -12,9 +12,11 @@
     <body>
         <div class="container mt-4">
             <div class="row">
-                <div class="logo animated zoomIn">
-                    <img src="img/logo.svg" alt="Flipeo Logo">
-                </div>
+                <a href="index.php">
+                    <div class="logo animated zoomIn">
+                        <img src="img/logo.svg" alt="Flipeo Logo">
+                    </div>
+                </a>
                 <div class="col-md-6">
                     <div class="fingerprint-title animated fadeInUp">
                         <h1>Générez votre FlipBook depuis une vidéo</h1>
