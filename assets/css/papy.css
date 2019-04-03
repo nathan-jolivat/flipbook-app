@@ -1,0 +1,67 @@
+:root{
+--noir:#333;
+--noir-rgb:51,51,51;
+--debeug:coral;
+--yellow:#F8EF28;
+    --yellow-rgb :248,239,40;
+    --montserrat-font: "Montserrat", sans-serif;
+    --lifehack-font : "Lifehack Basic";
+}
+/*RESET*/
+html,body{
+    overflow-y: scroll;
+    scroll-behavior:smooth;
+}
+input:focus, .form-control:focus{
+    box-shadow:none !important;
+}
+
+.debeug{
+    outline:1px dotted var(--debeug);
+}
+.main-title{
+    display: inline-block;
+    word-wrap: break-word;
+    font-size:3rem;
+    font-weight:bold;
+    font-family: var(--montserrat-font);
+}
+.custom-btn{
+    padding:6px 12px;
+    font-weight:bold;
+    color:var(--noir);
+    background-color:var(--yellow);
+    border:none;
+    border-radius:50px;
+    transition:all 0.25s ease-in-out;
+}
+.custom-input{
+    margin:1.5rem 0;
+}
+.custom-input-text{
+    padding:0.5rem 1rem;
+    height:auto;
+    line-height:1.5rem;
+    border:none;
+    box-shadow:0 3px  0 var(--yellow);
+    background-color: #c1c1c126;
+}
+.custom-input-file{
+    height:300px;
+    background:transparent;
+    border:2px dotted var(--yellow);
+}
+.flipbook-title{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.preview-content{
+    background:linear-gradient(to left,rgba(var(--yellow-rgb),0.15) 0%,rgba(var(--yellow-rgb),0.15) 100% ), url('../img/bg-preview.png') no-repeat center /cover;
+    box-shadow:inset 10px 0 0 var(--yellow);
+}
+.main-title-container{
+    width:100%;
+    background: url('../img/bg-title.png') no-repeat center;
+    background-size:contain;
+}
