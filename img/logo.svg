@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 421 104">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f8ef28;
+      }
+
+      .cls-2 {
+        font-size: 60px;
+        font-family: LifehackBasic-Regular, Lifehack Basic;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_6" data-name="Groupe 6" transform="translate(0 -45)">
+    <path id="Rectangle_2" data-name="Rectangle 2" class="cls-1" d="M0,0H369a52,52,0,0,1,52,52v0a52,52,0,0,1-52,52H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(0 45)"/>
+    <g id="Symbole_1_1" data-name="Symbole 1 – 1">
+      <text id="Flipeo" class="cls-2" transform="matrix(0.996, -0.087, 0.087, 0.996, 195.294, 70.017)"><tspan x="0" y="54">Flipeo</tspan></text>
+    </g>
+  </g>
+</svg>

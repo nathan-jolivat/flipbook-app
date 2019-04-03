@@ -1,3 +1,2 @@
 <?php
-var_dump($_POST['video']);
-die();
+var_dump($_FILES["video"]["name"]);
