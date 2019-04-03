@@ -2,8 +2,57 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.25;
+    background-image: url("img/fingerprint.png");
+    background-repeat: no-repeat;
+    background-position: 10%;
+    background-size: auto 135%;
+}
+
 #main-img {
     border-left: solid 18px #F8EF28;
     max-height: 90vh;
 }
 
+.form-group {
+    max-width: 500px;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.form-group input#book-title {
+    background: #F8F8F8;
+    height: 50px;
+    border-radius: 0;
+    border: none;
+    border-bottom: solid 2px #F8EF28;
+    /* Fonts */
+    color: #898989;
+    font-weight: 300;
+    font-size: 0.9em;
+}
+
+.form-group input#book-title:focus {
+    background: #ffffff;
+    box-shadow: 0 0 0 .2rem rgba(248, 239, 40, 0.25);
+}
+
+.form-group input#video {
+    border: dashed 2px #F8EF28;
+}
+
+button.btn-send {
+    background: #F8EF28;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 15px 23px  rgba(141, 135, 0, 0.16);
+    padding: 12px 25px;
+}

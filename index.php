@@ -16,29 +16,29 @@
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-md-6 p-5">
-                    <h1>Générez votre FlipBook depuis une vidéo</h1>
+                <div class="col-md-4 pt-5 mx-auto">
+                    <h1 class="py-5">Générez votre FlipBook depuis une vidéo</h1>
 
-                    <form method="post" action="process.php" enctype="multipart/form-data">
+                    <form class="my-4 text-center" method="post" action="process.php" enctype="multipart/form-data">
 
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <label for="book-title">Titre de votre folioscope</label>
                             <input type="text" class="form-control" name="book-title" id="book-title" placeholder="La grande descente">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <label for="video">Faites glisser votre vidéo ici</label>
-                            <img src="res/img/icon-video.png" alt="icon-video">
-                            <input type="file" accept="video/*" class="form-control-file" id="video">
+                            <img class="d-block my-2 mx-auto" src="res/img/icon-video.png" alt="icon-video">
+                            <input type="file" accept="video/*" class="form-control-file p-3" id="video">
                             <small class="form-text text-muted">Le fichier ne doit pas dépasser 8 Mo.</small>
                         </div>
 
-                        <button type="submit" class="btn btn-warning">Envoyer</button>
+                        <button type="submit" class="btn btn-send rounded-pill">Envoyer</button>
                     </form>
                 </div>
 
-                <div class="col-md-6 p-5">
-                    <img class="img-fluid" id="main-img" src="res/img/flipbook.png" alt="Un folioscope">
+                <div class="col-md-6">
+                    <img class="img-fluid m-5" id="main-img" src="res/img/flipbook.png" alt="Un folioscope">
                 </div>
 
             </div>
