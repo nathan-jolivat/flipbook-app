@@ -13,11 +13,11 @@ Attention, il faudra bien vérifier les paramètres liès à la configuration de
 
 ** Fichier php.ini **
 <code>
-; Maximum size of POST data that PHP will accept.
-post_max_size = 32M
-
-; Maximum allowed size for uploaded files.
-upload_max_filesize = 32M
+; Maximum size of POST data that PHP will accept.  
+post_max_size = 32M  
+  
+; Maximum allowed size for uploaded files.  
+upload_max_filesize = 32M  
 </code>
 
 
