@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>Project - Upload Image</title>
+        <title>Project - Flipeo</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/papy.css">
     </head>
     <body>
-    <main>
+    <main id="main-content" class="main-light">
 
-
+<!--    --><?php
+//
+//            include_once("process.php");
+//
+//        $file_name = isset($file_name) ? $file_name : "";
+//
+//            ;?>
+        <div class="logo-brand">
+            <img src="assets/img/logo-flipeo.svg" alt="Logo Flipio">
+        </div>
 
         <div class="container mt-5">
 
@@ -32,10 +41,11 @@
                             Le fichier vidéo ne doit pas excéder 8Mo
                         </small>
                     </div>
-                    <button type="submit" class="btn btn-primary custom-btn">Envoyer</button>
+                    <button type="submit" class="btn btn-primary custom-btn submit-btn">Envoyer</button>
                 </form>
 
-                <div class="preview-content col-md-6"></div>
+                <div class="preview-content col-md-6 debeug">
+                </div>
 
             </div>
         </div>
