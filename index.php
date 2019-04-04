@@ -9,13 +9,24 @@
     <body>
     <main id="main-content" class="main-light">
 
-<!--    --><?php
+<?php
+
+//include_once('process.php');
 //
-//            include_once("process.php");
+//$title_upload = 'un titre';
+//$file_name = 'nom file';
+//$file_size = 'size file';
+//$file_type = '';
 //
-//        $file_name = isset($file_name) ? $file_name : "";
-//
-//            ;?>
+//    if(isset($file_type)) {
+//        echo $file_type;
+//} else {
+//        $file_type = "random";
+//        echo $file_type;
+//    }
+
+
+;?>
         <div class="logo-brand">
             <img src="assets/img/logo-flipeo.svg" alt="Logo Flipio">
         </div>

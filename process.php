@@ -1,6 +1,6 @@
 <?php
 
-// On clean les données  avec une fonction SLUGIFY
+// On clean les données textuelles entrantes (espace, caractères interdits  avec une fonction SLUGIFY
 function slugify($text)
 {
     // Strip html tags
@@ -24,6 +24,12 @@ function slugify($text)
     return $text;
 }
 
+//Appel aux fonctions d'extractions de frame sur Video + PDF
+require_once('extract_images_from_video.php');
+require_once('generation_flipbook.php');
+
+
+
 //GET Data File
 $title_upload = $_POST['title-video'];
 $file_name = $_FILES['video']['name'];
@@ -43,9 +49,9 @@ $file_type = pathinfo($file_name);
 $file_type = $file_type['extension'];
 
 //SET Type File OK
-$type_files = array('png','m4a','mp3','avi','mp4');
+$type_files = array('png','m4a','mp3','avi','mp4','gif','svg');
 
-if( $file_size <= 9000000) {
+if( $file_size <= 8000000) {
     //    Taille ok
         if(in_array($file_type, $type_files)){
 
@@ -57,18 +63,33 @@ if( $file_size <= 9000000) {
             // Format de nom de fichier : titre - date -extension
             $final_folder = $title_upload_clean . '-' . $date;
             $final_file = $title_upload_clean . ' - '. $date . '.' . $file_type;
+            // Incrémentation test
+//            $i = 1 ;
 
-
-                // Check if Dir Exist
+                // Check if DIR Exist
                 if (!file_exists($final_folder)){
-
                     mkdir("$final_folder");
                     move_uploaded_file($file_tmp,"$final_folder/$final_file");
 
+                // Fonction de création des frames + PDF
+                    extractFlips ( "$title_upload_clean/$final_file" );
+                        // via le logiciel ftmpeg (extract_images...)
+                    generateFlipBook( $title_upload_clean, "Titre");
+                        //via un module qui crée des pdf avec un layout prédéfini (generation_flipbook...)
                 }
                 else{
+                        for($i=1;$i<=3;$i++){
+//                            $i++;
+                            $final_folder = $final_folder . '_' . $i;
+                        // $final_folder = "dossier" . ' -' . "bis";
+                            mkdir($final_folder);
+                            move_uploaded_file($file_tmp,"$final_folder/$final_file");
+                            echo 'Le répertoire existe déjà, mais on va faire une nouvelle version BRO tkt ma poule';
 
-                    die('Le répertoir existe déjà');
+                            // die('Le répertoire existe déjà');
+
+
+                        }
 
                 }
 
@@ -81,4 +102,6 @@ else {
     echo "la taille de fichier est trop importante";
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+//ReLocation after treatement
+//header('Location: index.php');

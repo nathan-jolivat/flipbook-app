@@ -148,11 +148,15 @@ input:focus, .form-control:focus{
     background-size:contain;
 }
 button[type="submit"]{
-    box-shadow:0 12px 20px rgba(var(--noir-rgb),0.15);
-    transition:box-shadow 0.25s ease-in-out;
+    width:50%;
+    margin:0 auto;
+    box-shadow:0 10px 15px rgba(var(--noir-rgb),0.15);
+    transition:box-shadow 0.25s ease-in-out, all 0.15s ease-in-out;
 }
 button[type="submit"].submit-btn:hover,button[type='submit'].submit-btn:focus{
-    box-shadow:0 15px 23px rgba(var(--noir-rgb),0.25);
+    box-shadow:0 15px 20px rgba(var(--noir-rgb),0.35);
+    transform:translateY(-4px);
+    width:70%;
 }
 /*keyframes*/
 @keyframes sublined {
