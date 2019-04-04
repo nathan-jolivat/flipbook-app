@@ -1,5 +1,35 @@
 <?php
-    require_once 'process.php';
+//require_once 'process.php';
+
+    // var_dump($_GET);
+    // var_dump($_GET['error'];
+    /*
+    $code_erreur = $_GET['error'];
+
+    if ( $_GET['success'] ) {
+        echo '<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+                    <h4 class=\"alert-heading\"> Magnifique !</h4>
+                        <p>Votre folioscope est en cours de fabrication ! </p>
+                        '<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                        </button>
+              </div>';
+        }
+
+    if ( $_GET['error'] ) {
+        echo '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                    <h4 class=\"alert-heading\"> Oups !</h4>
+    <?php
+    ?>
+                '<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                        </button>
+                  </div>';
+
+    }
+    *
+    */
+
 ?>
 
 <!DOCTYPE html>
@@ -55,26 +85,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
-
-
-
-<?php
-
-    //var_dump($errors);
-
-    /*if(count($errors) !== 0) {
-
-        foreach ($errors as $error) {
-
-            echo '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-                    <h4 class=\"alert-heading\"> Oups !</h4> '
-                        . $error .
-                        '<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                            <span aria-hidden=\"true\">&times;</span>
-                        </button>
-                  </div>';
-            // echo '<script>alert("'.$error.'");</script>';
-        }
-    } */
-
-?>
