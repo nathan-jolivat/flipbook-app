@@ -1,14 +1,13 @@
 <?php
 
+require_once ("extract_images_from_video.php");
+require_once ("generation_flipbook.php");
+
 $title_upload = $_POST['titre'];
 
 $tmp_name = $_FILES['video'] ['tmp_name'];
 $name = $_FILES['video']['name'];
 
-
-$_FILES['video']['name'];
-$_FILES['video']['size'];
-$_FILES['video']['tmp_name'];
 
 // Slugify a string
 function slugify($text)
@@ -41,11 +40,8 @@ if (!mkdir($titre_clean, 0777, true)) {
     die('Erreur de création du dossier...');
 }
 
-move_uploaded_file($tmp_name, "$titre_clean/$name");
-
-
-
-
-
-
-var_dump($_FILES);
+ if (move_uploaded_file($tmp_name, "$titre_clean/$name"))
+    {
+        extractFlips ( "$titre_clean/$name" );
+        generateFlipBook( $titre_clean, "Titre");
+    }
