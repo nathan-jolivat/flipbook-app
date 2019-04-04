@@ -36,8 +36,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <h6 class="text-center">Renommer la vidéo ?</i></h6>
-                                    <input type="text" class="form-control" name="video-title" placeholder="Nom personnalisé">
-                                    <small class="smallest text-muted text-center">Laissez le champ vide si vous ne voulez pas renommer la vidéo</small>
+                                    <input type="text" class="form-control" name="video-title" placeholder="Nom vidéo (Optionnel)">
                                 </div>
                             </div>
                         </div>
