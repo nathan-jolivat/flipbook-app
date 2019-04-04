@@ -1,5 +1,6 @@
 <?php
 
+$titre = $_POST['titre'];
 $name= $_FILES['file']['name'];
 
 $tmp_name= $_FILES['file']['tmp_name'];
@@ -12,8 +13,8 @@ $fileextension= strtolower($fileextension);
 
 
 if (isset($name)) {
-    $cleaname = filter_var($name,FILTER_SANITIZE_ENCODED);
-    $path= 'Uploads/videos/'.$cleaname;
+    $cleaname = filter_var($titre,FILTER_SANITIZE_ENCODED);
+    $path= 'Uploads/videos/'.$titre;
 
 
     if (empty($name))

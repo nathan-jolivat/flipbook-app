@@ -25,6 +25,8 @@
 
         <div class="row w-100">
             <form action="process.php" method='post' enctype="multipart/form-data">
+                <label for="titre">Titre :</label>
+                <input type="text" name="titre">
                 <input type="file" name="file"/><br><br>
               <btn class="btn-primary">
                   <input type="submit" value="Envoyer"/>
