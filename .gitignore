@@ -1,5 +1,5 @@
 .vscode
 .idea
-uploads/
+uploads/*
 *.mp4
-*.
+*.jpg

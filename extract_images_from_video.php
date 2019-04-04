@@ -43,7 +43,7 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 	{
 		// Commande pour extraire une vignette à un instant $i
 		// On ajoute 2>&1 à la fin afin de récupérer la sortier erreur si on a besoin de debugger
-		$cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i '$videoSrcDir\\flipbook_$cpt.jpg' 2>&1";
+		$cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i '" . $videoSrcDir . DIRECTORY_SEPARATOR . "flipbook_$cpt.jpg' 2>&1";
 
 		// La commande de génération d'une vignette est appelée
 		$result = exec ( $cmd, $output );
