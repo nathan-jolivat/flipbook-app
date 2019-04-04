@@ -1,0 +1,39 @@
+html{}
+
+#flippcover{
+    overflow: hidden;
+}
+#flippcover img{
+    border-left: #f8ef28 7px solid;
+    max-width: 100%;
+}
+#logo{
+    margin-top: 50px;
+}
+#logo span{
+    background-color:#f8ef28 ;
+    display: block;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 200px;
+    height: 45px;
+    overflow: hidden;
+}
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+.form-control{
+    border: none;
+    border-bottom: 1px #f8ef28 solid;
+}
+.btn-primary{
+    background-color:#f8ef28;
+    padding: 10px;
+    color: black;
+}
+.btn-primary input{
+    background: transparent;
+    border: none;
+
+}
