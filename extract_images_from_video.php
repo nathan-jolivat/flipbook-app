@@ -29,4 +29,18 @@ function extractFlips ( $videoSrc, $format = "538x300" )
         $result = exec ( $cmd, $output );
         $cpt++;
     }
+    // Bonus
+    // On crée une dernière image pour le titre
+    //On importe l'image a laquelle nous allons ajouter le texte
+    $img = imagecreatefromjpeg( $videoSrcDir . DIRECTORY_SEPARATOR . "flipbook_1.jpg" );
+    //On prepare la couleur, en RGB
+    $white = imagecolorallocate($img, 255, 255, 255);
+    // Chemin vers notre fichier de police ttf
+    $font_file = './includes/fonts/police.otf';
+
+    //On ajoute le texte a l'aide de la fonction imagettftext
+    imagefttext($img, 60, 0, 105, 80, $white, $font_file, 'Benji FlipBook');
+
+    // On enregistre l'image
+    imagejpeg($img, $videoSrcDir . DIRECTORY_SEPARATOR . "flipbook_title.jpg");
 }
