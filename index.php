@@ -60,7 +60,7 @@
 
 <?php
 
-    var_dump($errors);
+    //var_dump($errors);
 
     /*if(count($errors) !== 0) {
 
