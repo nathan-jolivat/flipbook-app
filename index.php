@@ -1,3 +1,7 @@
+<?php
+    require_once 'process.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -51,3 +55,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
+
+
+
+<?php
+
+    var_dump($errors);
+
+    /*if(count($errors) !== 0) {
+
+        foreach ($errors as $error) {
+
+            echo '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                    <h4 class=\"alert-heading\"> Oups !</h4> '
+                        . $error .
+                        '<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                            <span aria-hidden=\"true\">&times;</span>
+                        </button>
+                  </div>';
+            // echo '<script>alert("'.$error.'");</script>';
+        }
+    } */
+
+?>
