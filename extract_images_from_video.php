@@ -15,8 +15,8 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 	// Commande
 	//$cmd = FFMPEG . " -y -i $video_src -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss 2 './flipbook.jpg'";
 
-	// Résultat
-	//$result = shell_exec( $cmd, $output);
+	// Dossier de la video source
+	$videoSrcDir = dirname( $videoSrc );
 
 	// La boucle
 	$timing = $duree / 30;
@@ -24,7 +24,7 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 
 	for ( $i = 0; $i < $duree ; $i+=$timing)
 	{
-		$cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i './flipbook_$cpt.jpg'";
+		$cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i '$videoSrcDir/flipbook_$cpt.jpg'";
 
 		$result = exec ( $cmd );
 
@@ -35,5 +35,3 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 	}
 
 }
-
-extractFlips ( "./video.mp4" );
