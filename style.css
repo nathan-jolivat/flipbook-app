@@ -1,0 +1,39 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2{
+    background-image: url(assets/empreinte.png);
+    height: 500px;
+    padding-top: 170px;
+    font-size: 54px;
+    font-weight: bold;
+    margin-top: 105px;
+}
+
+.img_logo{
+    position: fixed;
+    top: 10px;
+    left: -68px;
+}
+
+.form-control{
+    height: 100%;
+    padding: 0;
+    border: 2px dotted #F8EF28;
+}
+
+.btn-primary {
+    color: #111;
+    background-color: #F8EF28;
+    border: none;
+    width: 160px;
+    height: 40px;
+    border-radius: 30px;
+    box-shadow: 0px 3px 8px grey;
+}
+
+.btn-primary:hover {
+    color: #111;
+    background-color: #ededed;
+}
