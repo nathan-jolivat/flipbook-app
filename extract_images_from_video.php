@@ -11,7 +11,7 @@ define ( 'FFMPEG', '/usr/local/bin/ffmpeg');
 // define ( 'FFMPEG', 'c:\\laragon\\www\\flipbook-app\\ffmpeg\\bin\\ffmpeg.exe');
 
 // Le nombre de vignettes qui sera généré
-define ( 'NB_FLIPS', 40 );
+define ( 'NB_FLIPS', 30 );
 
 
 function extractFlips ( $videoSrc, $format = "538x300" )
