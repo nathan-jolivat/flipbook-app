@@ -35,8 +35,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <h6 class="text-center">Renommer la vidéo ? <i class="fa fa-info-circle" title="Laissez le champ vide si vous ne voulez pas renommer la vidéo"></i></h6>
+                                    <h6 class="text-center">Renommer la vidéo ?</i></h6>
                                     <input type="text" class="form-control" name="video-title" placeholder="Nom personnalisé">
+                                    <small class="smallest text-muted text-center">Laissez le champ vide si vous ne voulez pas renommer la vidéo</small>
                                 </div>
                             </div>
                         </div>
@@ -87,13 +88,12 @@
 
     <script>
         let succeed = document.getElementById('succeed');
-        console.log(succeed);
         if( succeed.innerText !== undefined ) {
 
             if (succeed.innerText === "Succeed")
             {
                 Snackbar.show({
-                    text: '👍 Vidéo envoyée avec succès, maintenant elle est à nous.',
+                    text: '👍 Vidéo envoyée et FlipBook généré',
                     actionText: "Ok !",
                     actionTextColor: "#F8EF28",
                     pos: "top-center"
@@ -101,7 +101,7 @@
             } else {
                 Snackbar.show( {
                     text: '💔 Une erreur s\'est produite durant l\'envoi',
-                    actionText: "fuck 🖕",
+                    actionText: "Mais euh 😰",
                     actionTextColor: "red",
                     pos: "top-center"
                 });

@@ -45,7 +45,9 @@ if (is_dir($uploads_dir)) {
     $temp_dir = $uploads_dir . "/" . $dir_name;
     move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean");
 
-
+    if ( move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean")) {
+        extractFlips("$temp_dir/$titre_video_clean");
+    }
 
     return header('location:index.php?success');
 }
