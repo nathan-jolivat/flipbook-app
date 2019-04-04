@@ -1,5 +1,8 @@
 <?php
 
+require ('./extract_images_from_video.php');
+require ('./generation_flipbook.php');
+
 function slugify($text)
 {
     // Strip html tags
@@ -23,9 +26,11 @@ function slugify($text)
     return $text;
 }
 
+$title=$_POST['title'];
 $name= $_FILES['file']['name'];
 
-$titre_clean = slugify($name);
+$clean_title = slugify($title);
+$clean_name = slugify($name);
 
 $tmp_name= $_FILES['file']['tmp_name'];
 
@@ -37,7 +42,7 @@ $fileextension= strtolower($fileextension);
 
 
 if (isset($name)) {
-    $path= 'Uploads/videos/'.$titre_clean.'/';
+    $path= 'Uploads/videos/'.$clean_title.'/';
     if (empty($name))
     {
         echo "Choissisez un fichier";
@@ -54,7 +59,10 @@ if (isset($name)) {
             }
             if (move_uploaded_file($tmp_name, $path."/".$name))
             {
-                echo 'Uploaded!';
+                //echo "$path/$clean_name";
+                extractFlips( "$path/$name" );
+                // L'extraction a marché on génère le PDF
+                generateFlipBook( $path, $clean_title);
             }
         }
     }
@@ -68,7 +76,5 @@ if ($fileextension == "mp4")
         Votre navigateur ne supporte pas les vidéos.
     </video>";
 }*/
-
-extractFlips ( "./video.mp4" );
 
 ?>

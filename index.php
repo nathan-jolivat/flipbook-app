@@ -15,6 +15,7 @@
                     <h2>Générer votre FlipBook depuis une vidéo</h2>
                     <form method="post" action="process.php" enctype="multipart/form-data">
                         <div class="form-group">
+                            <input type="text" class="form-control" name="title" id="title">
                             <input type="file" class="form-control" name="file" id="video">
                             <small id="emailHelp" class="form-text text-muted">
                                 Le fichier vidéo ne doit pas excéder 8Mo
