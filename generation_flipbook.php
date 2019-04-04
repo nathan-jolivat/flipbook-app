@@ -73,11 +73,8 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 	$cpt = 1;
 
 	// Parcours des images
-	foreach (glob($flipFolder . "/flipbook*.jpg") as $filename) 
+	foreach ( glob($flipFolder . "/flipbook*.jpg") as $filename ) 
 	{
-		// On ajoute le nom du dossier
-		//$filename = $flipFolder . "/" . $filename;
-
 		// Besoin de passer à une nouvelle page?
 		if ( $cpt >10 )
 		{
@@ -86,7 +83,7 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 			// Add a page
 			$pdf->AddPage();
 		}
-		
+
 		switch ($cpt)
 		{
 			// Ligne 1
@@ -117,23 +114,23 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 				break;
 
 			// Ligne 4
-					case 7:
-							$pdf->writeHTMLCell(95, 53, 9, 166, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
-							break;
+				case 7:
+						$pdf->writeHTMLCell(95, 53, 9, 166, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+						break;
 
-					case 8:
-							$pdf->writeHTMLCell(95, 53, 104, 166, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
-							break;
+				case 8:
+						$pdf->writeHTMLCell(95, 53, 104, 166, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
+						break;
 
 
 			// Ligne 5
-					case 9:
-							$pdf->writeHTMLCell(95, 53, 9, 218, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
-							break;
+				case 9:
+						$pdf->writeHTMLCell(95, 53, 9, 218, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+						break;
 
-					case 10:
-							$pdf->writeHTMLCell(95, 53, 104, 218, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
-							break;
+				case 10:
+						$pdf->writeHTMLCell(95, 53, 104, 218, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
+						break;
 		}
 
 		// Incrémentation du compteur
@@ -148,7 +145,3 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 	//Close and output PDF document
 	$pdf->Output('flipeo.pdf', 'I');
 }
-
-
-
-//generateFlipBook ( ".", "Mon premier Folioscope");
