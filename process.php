@@ -54,19 +54,31 @@ if( $file_size <= 9000000) {
             $date = $date->format('Y-m-d');
 //            var_dump($date);
 
-//            Format de nom de fichier : titre - date -extension
+            // Format de nom de fichier : titre - date -extension
             $final_folder = $title_upload_clean . '-' . $date;
             $final_file = $title_upload_clean . ' - '. $date . '.' . $file_type;
 
-            mkdir("$final_folder");
-            move_uploaded_file($file_tmp,"$final_folder/$final_file");
+
+                // Check if Dir Exist
+                if (!file_exists($final_folder)){
+
+                    mkdir("$final_folder");
+                    move_uploaded_file($file_tmp,"$final_folder/$final_file");
+
+                }
+                else{
+
+                    die('Le répertoir existe déjà');
+
+                }
+
         }
             else {
-                echo 'le type de fichier est incorrect';
+                echo 'le type de fichier est incorrek';
             }
 }
 else {
-    echo "la taille est trop importante";
+    echo "la taille de fichier est trop importante";
 }
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);

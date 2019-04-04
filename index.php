@@ -29,7 +29,7 @@
                 <form method="post" action="process.php" enctype="multipart/form-data" class="col-md-6">
 
                     <div class="main-title-container">
-                        <h1 class="main-title">Générez votre FlipBook depuis une vidéo</h1>
+                        <h1 class="main-title">Générez votre FlipBook depuis une <span class="underliner-title">vidéo</span></h1>
                     </div>
 
                     <div class="form-group">
@@ -44,7 +44,7 @@
                     <button type="submit" class="btn btn-primary custom-btn submit-btn">Envoyer</button>
                 </form>
 
-                <div class="preview-content col-md-6 debeug">
+                <div class="preview-content col-md-6">
                 </div>
 
             </div>
