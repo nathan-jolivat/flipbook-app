@@ -3,107 +3,152 @@
 // Génération d'un fichier PDF Matrice
 //============================================================+
 
+function generateBlankPdf ( $flipTitle )
+{
+	// Include the main TCPDF library (search for installation path).
+	require_once('includes/tcpdf.php');
 
-// Include the main TCPDF library (search for installation path).
-require_once('includes/tcpdf.php');
+	// Extend the TCPDF class to create custom Header and Footer
+	class MYPDF extends TCPDF {
+		public $flipTitle;
 
-// create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+		// Page footer
+		public function Footer() {
+			// Page number
+			$this->Cell(0, 10, "FLIPEO - CESI - " . $this->flipTitle . "  //  " . 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+		}
+	}
 
-// set document information
-$pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Web Concepteurs 2017');
-$pdf->SetTitle('Flipeo');
-$pdf->SetSubject('Flipeo');
-$pdf->SetKeywords('Flipeo, CESI');
+	// create new PDF document
+	$pdf = new MYPDF( PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+	$pdf->flipTitle = $flipTitle;
 
-// set default header data
-/*$pdf->SetHeaderData(
-	PDF_HEADER_LOGO, 
-	PDF_HEADER_LOGO_WIDTH, 
-	"FLIPEO", 
-	"Une application du CESI");
-*/
-// set header and footer fonts
-/*$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-*/
+	// set document information
+	$pdf->SetCreator(PDF_CREATOR);
+	$pdf->SetAuthor('Web Concepteurs 2017');
+	$pdf->SetTitle('Flipeo');
+	$pdf->SetSubject('Flipeo');
+	$pdf->SetKeywords('Flipeo, CESI');
 
-$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+	$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
+	// remove default header/footer
+	$pdf->setPrintHeader(false);
 
-// remove default header/footer
-$pdf->setPrintHeader(false);
+	// set default monospaced font
+	$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+	$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
+	// set auto page breaks
+	$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-// set default monospaced font
-$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+	// set some language-dependent strings (optional)
+	if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+		require_once(dirname(__FILE__).'/lang/eng.php');
+		$pdf->setLanguageArray($l);
+	}
 
-// set margins
-//$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-//$pdf->SetMargins(9, 0, 11);
+	// ---------------------------------------------------------
 
-//$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+	// set font
+	$pdf->SetFont('times', '', 10);
 
-// set auto page breaks
-$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+	// add a page
+	$pdf->AddPage();
 
-// set some language-dependent strings (optional)
-if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
-    require_once(dirname(__FILE__).'/lang/eng.php');
-    $pdf->setLanguageArray($l);
+	// set cell padding
+	$pdf->setCellPaddings(0, 0, 0, 0);
+
+	// set cell margins
+	$pdf->setCellMargins(0, 0, 0, 0);
+	return $pdf;
 }
 
-// ---------------------------------------------------------
 
-// set font
-$pdf->SetFont('times', '', 10);
+function generateFlipBook ( $flipFolder, $flipTitle )
+{
+	$pdf = generateBlankPdf( $flipTitle );
 
-// add a page
-$pdf->AddPage();
+	// Compteur
+	$cpt = 1;
 
-// set cell padding
-$pdf->setCellPaddings(0, 0, 0, 0);
+	// Parcours des images
+	foreach (glob($flipFolder . "/flipbook*.jpg") as $filename) 
+	{
+		// On ajoute le nom du dossier
+		$filename = $flipFolder . "/" . $filename;
 
-// set cell margins
-$pdf->setCellMargins(0, 0, 0, 0);
+		// Besoin de passer à une nouvelle page?
+		if ( $cpt >10 )
+		{
+			$cpt = 1;
+			
+			// Add a page
+			$pdf->AddPage();
+		}
 
-// writeHTMLCell($w, $h, $x, $y, $html='', $border=0, $ln=0, $fill=0, $reseth=true, $align='', $autopadding=true)
+		switch ($cpt)
+		{
+			// Ligne 1
+			case 1:
+				$pdf->writeHTMLCell(95, 53, 9, 7, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+				break;
 
-// Ligne 1
-$pdf->writeHTMLCell(95, 53, 9, 7, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
-$pdf->writeHTMLCell(95, 53, 104, 7, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
+			case 2:
+				$pdf->writeHTMLCell(95, 53, 104, 7, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+				break;
+			
+			// Ligne 2
+			case 3:
+				$pdf->writeHTMLCell(95, 53, 9, 60, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+				break;
 
-$x = $pdf->getX();
-$y = $pdf->getY();
+			case 4:
+				$pdf->writeHTMLCell(95, 53, 104, 60, '<img src="' . $filename .'">', 1, 0, 0, true, '', '', true);
+				break;
 
-// Ligne 2
-$pdf->writeHTMLCell(95, 53, 9, 60, '<img src="flipbook.jpg">', 1, 0, 1, true, '', '', true);
-$pdf->writeHTMLCell(95, 53, 104, 60, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
+			// Ligne 3
+			case 5:
+				$pdf->writeHTMLCell(95, 53, 9, 113, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+				break;
 
-// Ligne 3
-$pdf->writeHTMLCell(95, 53, 9, 113, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
-$pdf->writeHTMLCell(95, 53, 104, 113, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
+			case 6:
+				$pdf->writeHTMLCell(95, 53, 104, 113, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
+				break;
 
-// Ligne 4
-$pdf->writeHTMLCell(95, 53, 9, 166, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
-$pdf->writeHTMLCell(95, 53, 104, 166, '<img src="flipbook.jpg">', 1, 0, 1, true, '', '', true);
+			// Ligne 4
+					case 7:
+							$pdf->writeHTMLCell(95, 53, 9, 166, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+							break;
 
-// Ligne 5
-$pdf->writeHTMLCell(95, 53, 9, 218, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
-$pdf->writeHTMLCell(95, 53, 104, 218, '<img src="flipbook.jpg">', 1, 0, 0, true, '', '', true);
-
-//$pdf->Ln(4);
+					case 8:
+							$pdf->writeHTMLCell(95, 53, 104, 166, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
+							break;
 
 
-// move pointer to last page
-$pdf->lastPage();
+			// Ligne 5
+					case 9:
+							$pdf->writeHTMLCell(95, 53, 9, 218, '<img src="' . $filename . '">', 1, 0, 0, true, '', '', true);
+							break;
 
-// ---------------------------------------------------------
+					case 10:
+							$pdf->writeHTMLCell(95, 53, 104, 218, '<img src="' . $filename . '">', 1, 0, 1, true, '', '', true);
+							break;
+		}
 
-//Close and output PDF document
-$pdf->Output('flipeo.pdf', 'I');
+		// Incrémentation du compteur
+		$cpt++;
+	}
 
-//============================================================+
-// END OF FILE
-//============================================================+
+	// move pointer to last page
+	$pdf->lastPage();
+
+	// ---------------------------------------------------------
+
+	//Close and output PDF document
+	$pdf->Output('flipeo.pdf', 'I');
+}
+
+
+
+generateFlipBook ( ".", "Mon premier Folioscope");

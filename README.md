@@ -11,7 +11,7 @@ Champs à afficher:
 
 Attention, il faudra bien vérifier les paramètres liès à la configuration de la taille maximale d'upload
 
-** Fichier php.ini **
+**Fichier php.ini**
 ```
 ; Maximum size of POST data that PHP will accept.  
 post_max_size = 32M  
