@@ -82,11 +82,11 @@
     <script src="https://unpkg.com/tippy.js@4"></script>
 
     <?php
-    if($_GET['success'] !== null) {
-        echo "<div id='succeed' style='display: none'>Succeed</div>";
-    } elseif($_GET['error'] !== null) {
-        echo "<div id='succeed' style='display: none'>Error</div>";
-    }
+        if($_GET['success'] !== null) {
+            echo "<div id='succeed' style='display: none'>Succeed</div>";
+        } elseif($_GET['error'] !== null) {
+            echo "<div id='succeed' style='display: none'>Error</div>";
+        }
     ?>
 
     <script>

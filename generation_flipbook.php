@@ -76,7 +76,7 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 	foreach (glob($flipFolder . "/flipbook*.jpg") as $filename) 
 	{
 		// On ajoute le nom du dossier
-		$filename = $flipFolder . "/" . $filename;
+		//$filename = $flipFolder . "/" . $filename;
 
 		// Besoin de passer à une nouvelle page?
 		if ( $cpt >10 )
@@ -86,7 +86,7 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 			// Add a page
 			$pdf->AddPage();
 		}
-
+		
 		switch ($cpt)
 		{
 			// Ligne 1
@@ -151,4 +151,4 @@ function generateFlipBook ( $flipFolder, $flipTitle )
 
 
 
-generateFlipBook ( ".", "Mon premier Folioscope");
+//generateFlipBook ( ".", "Mon premier Folioscope");

@@ -10,7 +10,7 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 
 	// Exécution
 	$duree = exec( $cmd_duration );
-	echo "La vidéo dure: " . $duree;
+	//echo "La vidéo dure: " . $duree;
 
 	// Commande
 	//$cmd = FFMPEG . " -y -i $video_src -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss 2 './flipbook.jpg'";
@@ -27,9 +27,6 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 		$cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i '$videoSrcDir/flipbook_$cpt.jpg'";
 
 		$result = exec ( $cmd );
-
-		echo '<img src="./flipbook_' . $cpt . '.jpg">';
-		echo "<br/>";
 
 		$cpt++;
 	}

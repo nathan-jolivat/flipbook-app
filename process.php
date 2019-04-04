@@ -4,6 +4,7 @@ $uploads_dir = './uploads';
 
 // Inclusion
 require ('./extract_images_from_video.php');
+require ('./generation_flipbook.php');
 
 // Slugify a string
 function slugify($text) {
@@ -50,6 +51,9 @@ if (is_dir($uploads_dir)) {
     {
         // La déplacement a fonctionné, on peut faire appel à l'extraction des flips
         extractFlips( "$temp_dir/$titre_video_clean" );
+
+        // L'extraction a marché on génère le PDF
+        generateFlipBook( $temp_dir, $titre);
     }
 
 
