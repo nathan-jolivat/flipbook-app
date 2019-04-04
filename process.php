@@ -1,5 +1,6 @@
 <?php
 require_once('xtract_images_from_video.php');
+require_once('generation_flipbook.php');
 
 $uploads_dir = './uploads';
 
@@ -45,7 +46,9 @@ if (is_dir($uploads_dir)) {
     $temp_dir = $uploads_dir . "/" . $dir_name;
 
     if ( move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean")) {
+
         extractFlips("$temp_dir/$titre_video_clean");
+        generateFlipBook($titre_video_clean, "ff");
     }
 
     return header('location:index.php?success');
