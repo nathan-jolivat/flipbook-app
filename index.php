@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="css/drop-zone.css">
         <link rel="stylesheet" type="text/css" href="css/snackbar.css" />
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
     </head>
     <body>
         <div class="container mt-4">
@@ -36,12 +35,11 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <h6 class="text-center">Renommer la vidéo ? <i class="fa fa-info-circle" data-tippy-content="Laissez le champ vide si vous ne voulez pas renommer la vidéo"></i></h6>
+                                    <h6 class="text-center">Renommer la vidéo ? <i class="fa fa-info-circle" title="Laissez le champ vide si vous ne voulez pas renommer la vidéo"></i></h6>
                                     <input type="text" class="form-control" name="video-title" placeholder="Nom personnalisé">
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div id="drop-area">
                                 <div class="preview-zone hidden">
@@ -78,8 +76,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/drop-zone.js"></script>
     <script src="js/snackbar.js"></script>
-    <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@4"></script>
 
     <?php
     if($_GET['success'] !== null) {
@@ -92,21 +88,24 @@
     <script>
         let succeed = document.getElementById('succeed');
         console.log(succeed);
-        if (succeed.innerText === "Succeed")
-        {
-            Snackbar.show({
-                text: '👍 Vidéo envoyée avec succès, maintenant elle est à nous.',
-                actionText: "Ok !",
-                actionTextColor: "#F8EF28",
-                pos: "top-center"
-            });
-        } else {
-            Snackbar.show( {
-                text: '💔 Une erreur s\'est produite durant l\'envoi',
-                actionText: "fuck 🖕",
-                actionTextColor: "red",
-                pos: "top-center"
-            });
+        if( succeed.innerText !== undefined ) {
+
+            if (succeed.innerText === "Succeed")
+            {
+                Snackbar.show({
+                    text: '👍 Vidéo envoyée avec succès, maintenant elle est à nous.',
+                    actionText: "Ok !",
+                    actionTextColor: "#F8EF28",
+                    pos: "top-center"
+                });
+            } else {
+                Snackbar.show( {
+                    text: '💔 Une erreur s\'est produite durant l\'envoi',
+                    actionText: "fuck 🖕",
+                    actionTextColor: "red",
+                    pos: "top-center"
+                });
+            }
         }
     </script>
     </body>

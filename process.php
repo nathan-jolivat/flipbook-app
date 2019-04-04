@@ -1,4 +1,6 @@
 <?php
+require_once('xtract_images_from_video.php');
+
 $uploads_dir = './uploads';
 
 // Slugify a string
@@ -42,6 +44,9 @@ if (is_dir($uploads_dir)) {
     mkdir("$uploads_dir/$dir_name", 0777, true);
     $temp_dir = $uploads_dir . "/" . $dir_name;
     move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean");
+
+
+
     return header('location:index.php?success');
 }
 return header('location:index.php?error');
