@@ -1,7 +1,7 @@
 <?php
 
-define ( 'FFPROBE', 'c:\laragon\www\flipbook-app\ffmpeg\bin\ffprobe.exe');
-define ( 'FFMPEG', 'c:\laragon\www\flipbook-app\ffmpeg\bin\ffmpeg.exe');
+define ( 'FFPROBE', 'c:\\laragon\\www\\flipbook-app\\ffmpeg\\bin\\ffprobe.exe');
+define ( 'FFMPEG', 'c:\\laragon\\www\\flipbook-app\\ffmpeg\\bin\\ffmpeg.exe');
 
 function extractFlips ( $videoSrc, $format = "538x300" )
 {
@@ -23,9 +23,9 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 
     for ( $i = 0; $i < $duree ; $i+=$timing)
     {
-        $cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i $videoSrcDir\flipbook$cpt.jpg 2>&1";
+        $cmd = FFMPEG . " -y -i $videoSrc -vcodec mjpeg -vframes 1 -an -f rawvideo -s $format -ss $i $videoSrcDir\\flipbook$cpt.jpg 2>&1";
 
-        echo $cmd;
+        //echo $cmd;
         $result = exec ( $cmd, $output );
         $cpt++;
     }

@@ -62,7 +62,7 @@ if( $file_size <= 8000000) {
 
             // Format de nom de fichier : titre - date -extension
             $final_folder = $title_upload_clean . '-' . $date;
-            $final_file = $title_upload_clean . ' - '. $date . '.' . $file_type;
+            $final_file = $title_upload_clean . '-'. $date . '.' . $file_type;
             // Incrémentation test
 //            $i = 1 ;
 
@@ -72,9 +72,9 @@ if( $file_size <= 8000000) {
                     move_uploaded_file($file_tmp,"$final_folder/$final_file");
 
                 // Fonction de création des frames + PDF
-                    extractFlips ( "$title_upload_clean/$final_file" );
+                    extractFlips ( "$final_folder/$final_file" );
                         // via le logiciel ftmpeg (extract_images...)
-                    generateFlipBook( $title_upload_clean, "Titre");
+                    generateFlipBook( $final_folder, "Titre");
                         //via un module qui crée des pdf avec un layout prédéfini (generation_flipbook...)
                 }
                 else{
