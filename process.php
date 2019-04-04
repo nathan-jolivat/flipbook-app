@@ -47,6 +47,10 @@ if (is_dir($uploads_dir)) {
 
     if ( move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean")) {
 
+
+        var_dump($titre_video_clean);
+        die();
+
         extractFlips("$temp_dir/$titre_video_clean");
         generateFlipBook($titre_video_clean, "ff");
     }

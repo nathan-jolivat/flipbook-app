@@ -12,14 +12,14 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container mt-4">
+        <div class="mt-4">
             <div class="row">
                 <a href="index.php">
                     <div class="logo animated zoomIn">
                         <img src="img/logo.svg" alt="Flipeo Logo">
                     </div>
                 </a>
-                <div class="col-md-6">
+                <div class="col-md-6 padding-left">
                     <div class="fingerprint-title animated fadeInUp">
                         <h1>Générez votre FlipBook depuis une vidéo</h1>
                     </div>
@@ -61,13 +61,13 @@
                         </div>
 
                         <div class="button-wrap animated bounceIn margin-top-30">
-                            <button class="button" type="submit"><i class="fa fa-cloud-upload-alt"></i> Envoyer</button>
+                            <button class="button" id="submitButton" type="submit"><i class="fa fa-cloud-upload-alt"></i> Envoyer</button>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-6">
                     <div class="illustration animated fadeInRight">
-                        <img src="img/illustration.png" width="140%" alt="Illustration Flipeo">
+                        <img src="img/illustration.png" width="92%" alt="Illustration Flipeo">
                     </div>
                 </div>
             </div>
@@ -86,6 +86,8 @@
     ?>
 
     <script>
+        let submitButton = document.getElementById('submitButton');
+
         let succeed = document.getElementById('succeed');
         if( succeed.innerText !== undefined ) {
 
