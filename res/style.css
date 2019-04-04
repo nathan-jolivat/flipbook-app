@@ -53,6 +53,12 @@ button.btn-send {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0 15px 23px  rgba(141, 135, 0, 0.16);
+    box-shadow: 0 0 23px  rgba(141, 135, 0, 0.16);
     padding: 12px 25px;
+}
+
+button.btn-send:hover, .btn-send:active {
+    background: #fff;
+    border: solid 1px #F8EF28;
+    box-shadow: 0 15px 23px rgba(141, 135, 0, 0.16);
 }

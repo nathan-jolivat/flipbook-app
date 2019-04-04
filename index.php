@@ -29,7 +29,7 @@
                         <div class="form-group mb-4">
                             <label for="video">Faites glisser votre vidéo ici</label>
                             <img class="d-block my-2 mx-auto" src="res/img/icon-video.png" alt="icon-video">
-                            <input type="file" accept="video/*" class="form-control-file p-3" id="video">
+                            <input type="file" accept="video/*" class="form-control-file p-3" id="video" name="video">
                             <small class="form-text text-muted">Le fichier ne doit pas dépasser 8 Mo.</small>
                         </div>
 
