@@ -105,5 +105,8 @@ function generateFlipBook ( $flipFolder, $flipTitle )
     $pdf->lastPage();
     // ---------------------------------------------------------
     //Close and output PDF document
+
     $pdf->Output('flipeo.pdf', 'I');
+
+    return header('location:index.php?success');
 }

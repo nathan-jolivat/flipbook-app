@@ -35,8 +35,10 @@ $extension = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
 if ($_POST['video-title'] !== "") {
     $titre_video = basename($_POST["video-title"]);
     $titre_video_clean = slugify($titre_video) . "." . $extension;
+    $titre_video_clean_without_extension = slugify($titre_video);
 } else {
     $titre_video_clean = slugify($_FILES['video']['name']) . "." . $extension;
+    $titre_video_clean_without_extension = slugify($_FILES['video']['name']);
 }
 
 if (is_dir($uploads_dir)) {
@@ -47,12 +49,8 @@ if (is_dir($uploads_dir)) {
 
     if ( move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean")) {
 
-
-        var_dump($titre_video_clean);
-        die();
-
         extractFlips("$temp_dir/$titre_video_clean");
-        generateFlipBook($titre_video_clean, "ff");
+        generateFlipBook($temp_dir, $titre_video_clean_without_extension);
     }
 
     return header('location:index.php?success');
