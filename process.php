@@ -24,13 +24,24 @@ function slugify($text) {
     // Return result
     return $text;
 }
-$titre = basename($_FILES["video"]["name"]);
+$titre = basename($_POST["title"]);
 $titre_clean = slugify($titre);
 
-if (is_dir($uploads_dir)) {
-    $tmp_name = basename($_FILES["video"]["tmp_name"]);
-    $name = $_FILES["video"]["name"];
-    mkdir("$uploads_dir/$tmp_name", 0777, true);
-    $temp_dir = $uploads_dir . "/" . $tmp_name;
-    move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre");
+$extension = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
+
+if ($_POST['video-title'] !== "") {
+    $titre_video = basename($_POST["video-title"]);
+    $titre_video_clean = slugify($titre_video) . "." . $extension;
+} else {
+    $titre_video_clean = slugify($_FILES['video']['name']) . "." . $extension;
 }
+
+if (is_dir($uploads_dir)) {
+    $dir_name = slugify($_POST["title"]);
+    $name = $_FILES["video"]["name"];
+    mkdir("$uploads_dir/$dir_name", 0777, true);
+    $temp_dir = $uploads_dir . "/" . $dir_name;
+    move_uploaded_file($_FILES["video"]["tmp_name"], "$temp_dir/$titre_video_clean");
+    return header('location:index.php?success');
+}
+return header('location:index.php?error');

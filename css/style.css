@@ -5,6 +5,10 @@
     src: url("../fonts/DearType_-_Lifehack_Basic.otf");
 }
 
+* {
+    outline: none !important;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
@@ -12,7 +16,7 @@ body {
 .fingerprint-title {
     background-image: url("../img/fingerprint-background.png");
     background-repeat:no-repeat;
-    background-size: 100% 100%;
+    background-size: 80% 100%;
     display: block;
     padding: 160px 50px;
 }
@@ -59,8 +63,20 @@ body {
 }
 
 .button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    background-color: #ece326;
+    box-shadow: 0px 15px 20px rgba(236, 227, 38, 0.4);
     color: #fff;
     transform: translateY(-7px);
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #F8EF28 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(248, 239, 40, 0.25) !important;
+}
+
+.form-control {
+    border-color: #F8EF28 !important;
 }
