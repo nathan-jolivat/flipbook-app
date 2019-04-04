@@ -19,7 +19,7 @@ function extractFlips ( $videoSrc, $format = "538x300" )
 	$videoSrcDir = dirname( $videoSrc );
 
 	// La boucle
-	$timing = $duree / 30;
+	$timing = floatval( $duree ) / 30;
 	$cpt = 1;
 
 	for ( $i = 0; $i < $duree ; $i+=$timing)
