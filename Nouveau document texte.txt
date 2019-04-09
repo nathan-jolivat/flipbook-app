@@ -1,0 +1,5 @@
+pbm d'email de connection / email privé :
+changement fait en Mars car push impossible = > ok
+
+Aujd même probleme avec même mail (non privé, celui généré par github pour les commits etc..) du type
+XXXXXXXX+pseudo@users.noreply.github.com
